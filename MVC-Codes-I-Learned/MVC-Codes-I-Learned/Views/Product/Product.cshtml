@@ -1,0 +1,35 @@
+﻿@using MVC_Codes_I_Learned.Models.Entity
+@model List<Products>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Product</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>PRODUCT ID</th>
+        <th>PRODUCT NAME</th>
+        <th>CATEGORY ID</th>
+        <th>PRICE</th>
+        <th>STOCK</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    <tbody>
+        @foreach (var prdct in Model)
+        {
+            <tr>
+                <td>@prdct.ProductID</td>
+                <td>@prdct.ProductName</td>
+                <td>@prdct.CategoryID</td>
+                <td>@prdct.UnitPrice</td>
+                <td>@prdct.UnitsInStock</td>
+                <td><a href="/Product/Delete/@prdct.ProductID" class="btn btn-danger"> DELETE </a></td>
+                <td><a href="/Product/Update/@prdct.ProductID" class="btn btn-success"> UPDATE </a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Product/NewProduct/" class="btn btn-primary">NEW PRODUCT</a>
+

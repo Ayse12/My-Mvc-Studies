@@ -1,0 +1,33 @@
+﻿@using MVC_Codes_I_Learned.Models.Entity
+@model List<Customers>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Customer</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>CUSTOMER ID</th>
+        <th>CUSTOMER</th>
+        <th>DEPARTMENT</th>
+        <th>CITY</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    <tbody>
+        @foreach (var cstmr in Model)
+        {
+            <tr>
+                <td>@cstmr.CustomerID</td>
+                <td>@cstmr.ContactName</td>
+                <td>@cstmr.ContactTitle</td>
+                <td>@cstmr.City</td>
+                <td><a href="/Customer/Delete/@cstmr.CustomerID" class="btn btn-danger"> DELETE </a></td>
+                <td><a href="/Customer/Update/@cstmr.CustomerID" class="btn btn-success"> UPDATE </a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customer/NewCustomer/" class="btn btn-primary">NEW CUSTOMER</a>
+
