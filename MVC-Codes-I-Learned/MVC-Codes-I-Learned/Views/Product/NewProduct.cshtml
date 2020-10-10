@@ -1,0 +1,34 @@
+﻿@model MVC_Codes_I_Learned.Models.Entity.Products
+@{
+    ViewBag.Title = "NewProduct";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>NewProduct</h2>
+
+
+@*Butona tıklandığı zaman arka tarafa post işlemi gerçekleşecek ve veriler taşınacak.*@
+<form class="form-group" method="post">
+    <div>
+        <label>Product Name</label>
+        @*Name veri tabanıyla aynı olmalı*@
+        <input type="text" class="form-control" name="ProductName" />
+    </div>
+    <div>
+        <label>Category ID</label>
+         @Html.DropDownListFor(m => m.CategoryID, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Price</label>
+        @*Name veri tabanıyla aynı olmalı*@
+        <input type="text" class="form-control" name="UnitPrice" />
+    </div>
+    <div>
+        <label>Stock</label>
+        @*Name veri tabanıyla aynı olmalı*@
+        <input type="text" class="form-control" name="UnitsInStock" />
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info"> Product Add</button>
+    </div>
+</form>

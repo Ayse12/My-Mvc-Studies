@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "NewCustomer";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>NewCustomer</h2>
+
+
+@*Butona tıklandığı zaman arka tarafa post işlemi gerçekleşecek ve veriler taşınacak.*@
+<form class="form-group" method="post">
+
+    <div style="margin-top:15px;">
+        <label>Customer Name</label>
+        <input type="text" class="form-control" name="ContactName" />
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>Department</label>
+        <input type="text" class="form-control" name="ContactTitle" />
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>City</label>
+        <input type="text" class="form-control" name="City" />
+    </div>
+
+    <div style="margin-top:15px;">
+        <button class="btn btn-info"> Customer Add</button>
+    </div>
+</form>
