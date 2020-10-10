@@ -245,6 +245,7 @@
     <Content Include="Views\Category\NewCategory.cshtml" />
     <Content Include="Views\Customer\NewCustomer.cshtml" />
     <Content Include="Views\Product\NewProduct.cshtml" />
+    <Content Include="Views\Category\GetCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

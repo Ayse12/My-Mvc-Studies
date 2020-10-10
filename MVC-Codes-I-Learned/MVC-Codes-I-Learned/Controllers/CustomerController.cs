@@ -32,5 +32,12 @@ namespace MVC_Codes_I_Learned.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult Delete(string id)
+        {
+            var cstmr = db.Customers.Find(id);
+            db.Customers.Remove(cstmr);
+            db.SaveChanges();
+            return RedirectToAction("Customer");
+        }
     }
 }

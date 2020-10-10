@@ -22,7 +22,7 @@
             <tr>
                 <td>@prdct.ProductID</td>
                 <td>@prdct.ProductName</td>
-                <td>@prdct.CategoryID</td>
+                <td>@prdct.Categories.CategoryName.ToString()</td>
                 <td>@prdct.UnitPrice</td>
                 <td>@prdct.UnitsInStock</td>
                 <td><a href="/Product/Delete/@prdct.ProductID" class="btn btn-danger"> DELETE </a></td>

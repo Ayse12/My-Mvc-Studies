@@ -41,5 +41,12 @@ namespace MVC_Codes_I_Learned.Controllers
             db.SaveChanges();
             return RedirectToAction("Product");
         }
+        public ActionResult Delete(int id)
+        {
+            var prdct = db.Products.Find(id);
+            db.Products.Remove(prdct);
+            db.SaveChanges();
+            return RedirectToAction("Product");
+        }
     }
 }

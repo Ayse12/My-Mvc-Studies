@@ -33,5 +33,17 @@ namespace MVC_Codes_I_Learned.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult Delete(int id)
+        {
+            var ctgry = db.Categories.Find(id);
+            db.Categories.Remove(ctgry);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult GetCategory(int id)
+        {
+            var ctgry = db.Categories.Find(id);
+            return View("GetCategory", ctgry);
+        }
     }
 }
