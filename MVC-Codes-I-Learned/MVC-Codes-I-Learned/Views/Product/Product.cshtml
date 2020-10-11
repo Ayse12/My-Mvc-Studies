@@ -1,23 +1,27 @@
 ﻿@using MVC_Codes_I_Learned.Models.Entity
-@using PagedList
-@using PagedList.Mvc
-@model PagedList.IPagedList<Products>
+@*@using PagedList
+    @using PagedList.Mvc
+    @model PagedList.IPagedList<Products>*@
+@model List<Products>
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
 <h2>Product</h2>
-<table class="table table-bordered">
-    <tr>
-        <th>PRODUCT ID</th>
-        <th>PRODUCT NAME</th>
-        <th>CATEGORY ID</th>
-        <th>PRICE</th>
-        <th>STOCK</th>
-        <th>DELETE</th>
-        <th>UPDATE</th>
-    </tr>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PRODUCT ID</th>
+            <th>PRODUCT NAME</th>
+            <th>CATEGORY ID</th>
+            <th>PRICE</th>
+            <th>STOCK</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+            <th>ALERT</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var prdct in Model)
         {
@@ -29,10 +33,20 @@
                 <td>@prdct.UnitsInStock</td>
                 <td><a href="/Product/Delete/@prdct.ProductID" class="btn btn-danger"> DELETE </a></td>
                 <td><a href="/Product/GetProduct/@prdct.ProductID" class="btn btn-success"> UPDATE </a></td>
+                <td>@Html.ActionLink("DELETE BUTTON", "Delete", new { id = prdct.ProductID }, new { @class = "btn btn-warning", onclick = "return confirm('Are you sure ?')" })</td>
+
             </tr>
         }
     </tbody>
 </table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Product", new { page }))
+@*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Product", new { page }))*@
 <a href="/Product/NewProduct/" class="btn btn-primary">NEW PRODUCT</a>
 
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css
+" rel="stylesheet" />
+
+<script>
+    $('#tbl1').dataTable();
+</script>

@@ -12,11 +12,11 @@
     <div>
         <label>Product Name</label>
         @*Name veri tabanıyla aynı olmalı*@
-        <input type="text" class="form-control" name="ProductName" required="" maxlength="40"/>
+        <input type="text" class="form-control" name="ProductName" required="" maxlength="40" />
     </div>
     <div>
         <label>Category ID</label>
-         @Html.DropDownListFor(m => m.CategoryID, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.CategoryID, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
     </div>
     <div>
         <label>Price</label>
@@ -29,6 +29,11 @@
         <input type="text" class="form-control" name="UnitsInStock" />
     </div>
     <div style="margin-top:15px;">
-        <button class="btn btn-info"> Product Add</button>
+        <button class="btn btn-info" id="btn1"> Product Add</button>
     </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Product added...!');
+        });
+    </script>
 </form>

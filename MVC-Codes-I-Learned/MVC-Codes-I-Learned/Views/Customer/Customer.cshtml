@@ -1,13 +1,21 @@
 ﻿@using MVC_Codes_I_Learned.Models.Entity
-@using PagedList
-@using PagedList.Mvc
-@model PagedList.IPagedList<Customers>
+@*@using PagedList
+@using PagedList.Mvc*@
+@*@model PagedList.IPagedList<Customers>*@
+@model List<Customers>
 @{
     ViewBag.Title = "Customer";
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
 <h2>Customer</h2>
+@using (Html.BeginForm("Customer", "Customer", FormMethod.Get))
+{
+    <p>
+        Search Customer : @Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table table-bordered">
     <tr>
         <th>CUSTOMER ID</th>
@@ -16,6 +24,7 @@
         <th>CITY</th>
         <th>DELETE</th>
         <th>UPDATE</th>
+        <th>ALERT</th>
     </tr>
     <tbody>
         @foreach (var cstmr in Model)
@@ -27,10 +36,11 @@
                 <td>@cstmr.City</td>
                 <td><a href="/Customer/Delete/@cstmr.CustomerID" class="btn btn-danger"> DELETE </a></td>
                 <td><a href="/Customer/GetCustomer/@cstmr.CustomerID" class="btn btn-success"> UPDATE </a></td>
+                <td>@Html.ActionLink("DELETE BUTTON", "Delete", new { id = @cstmr.CustomerID }, new { @class = "btn btn-warning", onclick = "return confirm('Are you sure ?')" })</td>
             </tr>
         }
     </tbody>
 </table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Customer", new { page }))
+@*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Customer", new { page }))*@
 <a href="/Customer/NewCustomer/" class="btn btn-primary">NEW CUSTOMER</a>
 

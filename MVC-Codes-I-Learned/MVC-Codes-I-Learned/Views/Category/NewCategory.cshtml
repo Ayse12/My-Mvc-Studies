@@ -18,6 +18,11 @@
         @Html.ValidationMessageFor(m => m.CategoryName, "", new { @style = "color:red" })
     </div>
     <div style="margin-top:15px;">
-        <button class="btn btn-info"> Category Add</button>
+        <button class="btn btn-info" id="btn1"> Category Add</button>
     </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Category added...!');
+        });
+    </script>
 </form>

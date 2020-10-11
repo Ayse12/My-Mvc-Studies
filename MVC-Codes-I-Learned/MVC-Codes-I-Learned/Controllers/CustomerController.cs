@@ -13,11 +13,18 @@ namespace MVC_Codes_I_Learned.Controllers
     {
         // GET: Customer
         NorthwindEntities db = new NorthwindEntities();
-        public ActionResult Customer(int page = 1)
+        public ActionResult Customer(string p /*int page = 1*/)
         {
+            var values = from d in db.Customers select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                values = values.Where(m => m.ContactName.Contains(p));
+            }
+            return View(values.ToList());
             //var values = db.Customers.ToList();
-            var values = db.Customers.ToList().ToPagedList(page, 10);
-            return View(values);
+            //var values = db.Customers.ToList().ToPagedList(page, 10);
+            // return View(values);
+
         }
 
         //Sayfa yüklendiğinde sadece tasarımı geriye döndürür.

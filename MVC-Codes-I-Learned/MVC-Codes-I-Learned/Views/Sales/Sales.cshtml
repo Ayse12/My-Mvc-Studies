@@ -1,0 +1,38 @@
+﻿@model MVC_Codes_I_Learned.Models.Entity.Orders
+
+@{
+    ViewBag.Title = "Sales";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Sales</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Sales
+</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sales Screen</h2>
+            </div>
+            <form method="post" action="/Sales/NewSales">
+                <div class="modal-body">
+                    <label>Employee</label>
+                    @Html.TextBoxFor(m => m.EmployeeID, new { @class = "form-control" })
+                    <br />
+                    <label>ShipName</label>
+                    @Html.TextBoxFor(m => m.ShipName, new { @class = "form-control" })
+                    <br />
+                    <label>Customer</label>
+                    @Html.TextBoxFor(m => m.CustomerID, new { @class = "form-control" })
+                    <br />
+                    <label>Shipvia</label>
+                    @Html.TextBoxFor(m => m.ShipVia, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class=" btn btn-info">Save Data</button>
+                    <button type="button" class=" btn btn-danger" data-dismiss="modal">Exit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

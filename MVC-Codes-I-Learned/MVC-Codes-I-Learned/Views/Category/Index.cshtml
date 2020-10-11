@@ -13,16 +13,19 @@
         <th>CATEGORY NAME</th>
         <th>DELETE</th>
         <th>UPDATE</th>
+        <th>ALERT</th>
     </tr>
     <tbody>
         @foreach (var ctgry in Model)
         {
-            <tr>
-                <td>@ctgry.CategoryID</td>
-                <td>@ctgry.CategoryName</td>
-                <td><a href="/Category/Delete/@ctgry.CategoryID" class="btn btn-danger"> DELETE </a></td>
-                <td><a href="/Category/GetCategory/@ctgry.CategoryID" class="btn btn-success"> UPDATE </a></td>
-            </tr>
+        <tr>
+            <td>@ctgry.CategoryID</td>
+            <td>@ctgry.CategoryName</td>
+            <td><a href="/Category/Delete/@ctgry.CategoryID" class="btn btn-danger"> DELETE </a></td>
+            <td><a href="/Category/GetCategory/@ctgry.CategoryID" class="btn btn-success"> UPDATE </a></td>
+            <td>@Html.ActionLink("DELETE BUTTON", "Delete", new { id = ctgry.CategoryID }, new { @class = "btn btn-warning", onclick = "return confirm('Are you sure ?')" })</td>
+
+        </tr>
         }
     </tbody>
 </table>
