@@ -11,7 +11,8 @@ namespace MVC_Codes_I_Learned.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +24,19 @@ namespace MVC_Codes_I_Learned.Models.Entity
     
         public string CustomerID { get; set; }
         public string CompanyName { get; set; }
+
+        [Required(ErrorMessage = "Please enter a label.")]
+        [StringLength(30,ErrorMessage = "Use max to 30 characters.")]
         public string ContactName { get; set; }
+
+        [Required(ErrorMessage = "Please enter a label.")]
+        [StringLength(30, ErrorMessage = "Use max to 30 characters.")]
         public string ContactTitle { get; set; }
+
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Please enter a label.")]
+        [StringLength(15, ErrorMessage = "Use max to 30 characters.")]
         public string City { get; set; }
         public string Region { get; set; }
         public string PostalCode { get; set; }

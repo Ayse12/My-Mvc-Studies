@@ -1,4 +1,4 @@
-﻿
+﻿@model MVC_Codes_I_Learned.Models.Entity.Categories
 @{
     ViewBag.Title = "NewCategory";
     Layout = "~/Views/Shared/MainLayout.cshtml";
@@ -9,9 +9,13 @@
 @*Butona tıklandığı zaman arka tarafa post işlemi gerçekleşecek ve veriler taşınacak.*@
 <form class="form-group" method="post">
     <div>
+        @*<label>Category Name</label>
+            //Name veri tabanıyla aynı olmalı//
+            <input type="text" class="form-control" name="CategoryName" />*@
+
         <label>Category Name</label>
-        @*Name veri tabanıyla aynı olmalı*@
-        <input type="text" class="form-control" name="CategoryName" />
+        @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CategoryName, "", new { @style = "color:red" })
     </div>
     <div style="margin-top:15px;">
         <button class="btn btn-info"> Category Add</button>

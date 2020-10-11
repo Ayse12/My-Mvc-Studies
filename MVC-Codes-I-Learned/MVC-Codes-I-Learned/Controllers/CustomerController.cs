@@ -28,6 +28,10 @@ namespace MVC_Codes_I_Learned.Controllers
         [HttpPost]
         public ActionResult NewCustomer(Customers p1)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("NewCustomer");
+            }
             db.Customers.Add(p1);
             db.SaveChanges();
             return View();

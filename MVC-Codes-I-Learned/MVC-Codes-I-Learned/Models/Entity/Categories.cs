@@ -11,7 +11,8 @@ namespace MVC_Codes_I_Learned.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace MVC_Codes_I_Learned.Models.Entity
         }
     
         public int CategoryID { get; set; }
+
+        [Required(ErrorMessage = "Please enter a label.")]
         public string CategoryName { get; set; }
         public string Description { get; set; }
         public byte[] Picture { get; set; }

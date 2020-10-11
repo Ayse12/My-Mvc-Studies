@@ -1,4 +1,5 @@
-﻿
+﻿@model MVC_Codes_I_Learned.Models.Entity.Customers
+
 @{
     ViewBag.Title = "NewCustomer";
     Layout = "~/Views/Shared/MainLayout.cshtml";
@@ -11,17 +12,20 @@
 <form class="form-group" method="post">
     <div style="margin-top:15px;">
         <label>Customer Name</label>
-        <input type="text" class="form-control" name="ContactName" />
+        @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ContactName, "", new { @style = "color:green" })
     </div>
 
     <div style="margin-top:15px;">
         <label>Department</label>
-        <input type="text" class="form-control" name="ContactTitle" />
+        @Html.TextBoxFor(m => m.ContactTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ContactTitle, "", new { @style = "color:green" })
     </div>
 
     <div style="margin-top:15px;">
         <label>City</label>
-        <input type="text" class="form-control" name="City" />
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City, "", new { @style = "color:green" })
     </div>
 
     <div style="margin-top:15px;">
