@@ -81,3 +81,7 @@ D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\obj\Debug\MVC-Co
 D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\obj\Debug\MVC-Codes-I-Learned.csproj.CopyComplete
 D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\obj\Debug\MVC-Codes-I-Learned.dll
 D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\obj\Debug\MVC-Codes-I-Learned.pdb
+D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\bin\PagedList.dll
+D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\bin\PagedList.Mvc.dll
+D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\bin\PagedList.xml
+D:\Proje\My-Mvc-Studies\MVC-Codes-I-Learned\MVC-Codes-I-Learned\bin\PagedList.Mvc.xml

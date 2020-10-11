@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Codes_I_Learned.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MVC_Codes_I_Learned.Controllers
 {
@@ -11,9 +13,10 @@ namespace MVC_Codes_I_Learned.Controllers
     {
         // GET: Customer
         NorthwindEntities db = new NorthwindEntities();
-        public ActionResult Customer()
+        public ActionResult Customer(int page = 1)
         {
-            var values = db.Customers.ToList();
+            //var values = db.Customers.ToList();
+            var values = db.Customers.ToList().ToPagedList(page, 10);
             return View(values);
         }
 

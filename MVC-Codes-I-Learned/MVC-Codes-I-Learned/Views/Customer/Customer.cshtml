@@ -1,5 +1,7 @@
 ﻿@using MVC_Codes_I_Learned.Models.Entity
-@model List<Customers>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Customers>
 @{
     ViewBag.Title = "Customer";
     Layout = "~/Views/Shared/MainLayout.cshtml";
@@ -29,5 +31,6 @@
         }
     </tbody>
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Customer", new { page }))
 <a href="/Customer/NewCustomer/" class="btn btn-primary">NEW CUSTOMER</a>
 
