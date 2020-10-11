@@ -1,0 +1,29 @@
+﻿@model MVC_Codes_I_Learned.Models.Entity.Products
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>GetProduct</h2>
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductID)
+        @Html.TextBoxFor(m => m.ProductID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.ProductName)
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.CategoryID)
+        @Html.DropDownListFor(m => m.Categories.CategoryID, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UnitPrice)
+        @Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UnitsInStock)
+        @Html.TextBoxFor(m => m.UnitsInStock, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">UPDATE</button>
+    </div>
+}

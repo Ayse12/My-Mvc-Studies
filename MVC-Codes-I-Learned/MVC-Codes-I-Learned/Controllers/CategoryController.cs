@@ -45,5 +45,12 @@ namespace MVC_Codes_I_Learned.Controllers
             var ctgry = db.Categories.Find(id);
             return View("GetCategory", ctgry);
         }
+        public ActionResult Update(Categories c1)
+        {
+            var ctgry = db.Categories.Find(c1.CategoryID);
+            ctgry.CategoryName = c1.CategoryName;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

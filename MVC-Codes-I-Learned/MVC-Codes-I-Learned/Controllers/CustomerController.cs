@@ -39,5 +39,20 @@ namespace MVC_Codes_I_Learned.Controllers
             db.SaveChanges();
             return RedirectToAction("Customer");
         }
+
+        public ActionResult GetCustomer(string id)
+        {
+            var cstmr = db.Customers.Find(id);
+            return View("GetCustomer", cstmr);
+        }
+        public ActionResult Update(Customers c1)
+        {
+            var cstmr = db.Customers.Find(c1.CustomerID);
+            cstmr.ContactName = c1.ContactName;
+            cstmr.ContactTitle = c1.ContactTitle;
+            cstmr.City = c1.City;
+            db.SaveChanges();
+            return RedirectToAction("Customer");
+        }
     }
 }

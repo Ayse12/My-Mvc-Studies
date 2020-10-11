@@ -48,5 +48,30 @@ namespace MVC_Codes_I_Learned.Controllers
             db.SaveChanges();
             return RedirectToAction("Product");
         }
+        public ActionResult GetProduct(int id)
+        {
+            var prdct = db.Products.Find(id);
+
+            List<SelectListItem> value = (from i in db.Categories.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = i.CategoryName,
+                                              Value = i.CategoryID.ToString()
+                                          }).ToList();
+            ViewBag.vlu = value;
+            return View("GetProduct", prdct);
+        }
+        public ActionResult Update(Products p1)
+        {
+            var prdct = db.Products.Find(p1.ProductID);
+            prdct.ProductName = p1.ProductName;
+            prdct.CategoryID = p1.CategoryID;
+            prdct.UnitPrice = p1.UnitPrice;
+            prdct.UnitsInStock = p1.UnitsInStock;
+            var ctgry = db.Categories.Where(m => m.CategoryID == p1.Categories.CategoryID).FirstOrDefault();
+            prdct.CategoryID = ctgry.CategoryID;
+            db.SaveChanges();
+            return RedirectToAction("Product");
+        }
     }
 }
